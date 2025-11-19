@@ -1,7 +1,8 @@
+import { BaseEntity } from '@/shared/base.entity';
 import { Column, Entity } from 'typeorm';
 
 @Entity('users')
-export class User {
+export class User extends BaseEntity {
   @Column({ type: 'varchar', nullable: false })
   name: string;
 
@@ -11,6 +12,6 @@ export class User {
   @Column({ type: 'varchar', nullable: false })
   password: string;
 
-  @Column({ type: 'number', nullable: true })
+  @Column({ type: 'decimal', nullable: true })
   age: number;
 }
