@@ -62,6 +62,11 @@ export class SetUserCycleDto {
   @IsNotEmpty()
   symptoms: string[];
 
+  @ApiProperty({
+    type: 'array',
+    example: ['missed spotting'],
+    description: 'Irregularities experience during menstruation',
+  })
   @IsArray()
   @IsString({
     each: true,
@@ -69,6 +74,10 @@ export class SetUserCycleDto {
   @IsNotEmpty()
   irregularities: string[];
 
+  @ApiProperty({
+    type: 'array',
+    example: ['PCOS'],
+  })
   @IsArray()
   @IsString({
     each: true,
@@ -76,22 +85,47 @@ export class SetUserCycleDto {
   @IsOptional()
   conditions: string[];
 
+  @ApiProperty({
+    enum: TrackingGoal,
+    example: TrackingGoal.AVOID_PREGNANCY,
+    description: 'Goal user wants to achieve',
+  })
   @IsEnum(TrackingGoal)
   @IsNotEmpty()
   goal: TrackingGoal;
 
+  @ApiProperty({
+    enum: StressLevel,
+    example: StressLevel.HIGH,
+    description: 'Stress level',
+  })
   @IsEnum(StressLevel)
   @IsNotEmpty()
   stress: StressLevel;
 
+  @ApiProperty({
+    enum: SleepQuality,
+    example: SleepQuality.FAIR,
+    description: 'Sleep Quality',
+  })
   @IsEnum(SleepQuality)
   @IsNotEmpty()
   sleep_quality: SleepQuality;
 
+  @ApiProperty({
+    enum: ExerciseFrequency,
+    example: ExerciseFrequency.RARELY,
+    description: 'Frequency of Exercise',
+  })
   @IsEnum(ExerciseFrequency)
   @IsNotEmpty()
   exercise: ExerciseFrequency;
 
+  @ApiProperty({
+    enum: DietType,
+    example: DietType.BALANCED,
+    description: 'Type of Diet',
+  })
   @IsEnum(DietType)
   @IsNotEmpty()
   diet: DietType;

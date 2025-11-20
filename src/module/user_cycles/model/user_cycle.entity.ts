@@ -1,3 +1,5 @@
+import { CyclePrediction } from '@/module/cycle_predictions/model/cycle_prediction.entity';
+import { User } from '@/module/users/model/user.entity';
 import { BaseEntity } from '@/shared/base.entity';
 import {
   DietType,
@@ -7,10 +9,14 @@ import {
   StressLevel,
   TrackingGoal,
 } from '@/shared/enum';
-import { Column, Entity } from 'typeorm';
+import { Column, Entity, JoinColumn, OneToMany, OneToOne } from 'typeorm';
 
 @Entity('user_cycles')
 export class UserCycle extends BaseEntity {
+  @OneToOne(() => User, { eager: false })
+  @JoinColumn({ name: 'user_Id' })
+  user: User;
+
   @Column({ type: 'int', default: 28 })
   cycle_length: number;
 
@@ -30,7 +36,7 @@ export class UserCycle extends BaseEntity {
   irregularities: string[];
 
   @Column({ type: 'simple-array', nullable: true })
-  condition: string[];
+  conditions: string[];
 
   @Column({ type: 'enum', enum: TrackingGoal })
   goal: TrackingGoal;
@@ -46,4 +52,7 @@ export class UserCycle extends BaseEntity {
 
   @Column({ type: 'enum', enum: DietType })
   diet: DietType;
+
+  @OneToMany(() => CyclePrediction, (prediction) => prediction.user_cycle)
+  predictions: CyclePrediction[];
 }

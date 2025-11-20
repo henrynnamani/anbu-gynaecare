@@ -5,3 +5,5 @@ export const USER_CREATED_SUCCESSFULLY = 'User successfully created';
 
 export const INVALID_CREDENTIAL = 'Invalid Credential';
 export const USER_SUCCESSFULLY_LOGGEDIN = 'Login successful';
+
+export const USER_CYCLE_SUCCESSFULLY_SET = 'User cycle successfully set';

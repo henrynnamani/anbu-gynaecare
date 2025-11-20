@@ -7,6 +7,8 @@ import { JwtAuthGuard } from './module/auth/guard/auth.guard';
 import jwtConfig from './config/jwt.config';
 import { UsersModule } from './module/users/users.module';
 import { AuthModule } from './module/auth/auth.module';
+import { UserCyclesModule } from './module/user_cycles/user_cycles.module';
+import { CyclePredictionsModule } from './module/cycle_predictions/cycle_predictions.module';
 
 @Module({
   imports: [
@@ -19,6 +21,8 @@ import { AuthModule } from './module/auth/auth.module';
     }),
     DatabaseModule,
     UsersModule,
+    UserCyclesModule,
+    CyclePredictionsModule,
     AuthModule,
   ],
   controllers: [],
