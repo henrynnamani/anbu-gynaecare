@@ -9,6 +9,7 @@ import { UsersModule } from './module/users/users.module';
 import { AuthModule } from './module/auth/auth.module';
 import { UserCyclesModule } from './module/user_cycles/user_cycles.module';
 import { CyclePredictionsModule } from './module/cycle_predictions/cycle_predictions.module';
+import { CycleLogsModule } from './module/cycle_logs/cycle_logs.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { CyclePredictionsModule } from './module/cycle_predictions/cycle_predict
     UsersModule,
     UserCyclesModule,
     CyclePredictionsModule,
+    CycleLogsModule,
     AuthModule,
   ],
   controllers: [],

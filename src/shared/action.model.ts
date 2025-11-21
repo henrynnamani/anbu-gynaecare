@@ -39,8 +39,15 @@ export class ModelAction<T extends ObjectLiteral> {
     });
   }
 
-  async findOne(id: string): Promise<T | null> {
-    const entity = await this.repository.findOne({ where: { id } as any });
+  async findOne(
+    id: string,
+    filter?: Partial<T>,
+    relations?: string[],
+  ): Promise<T | null> {
+    const entity = await this.repository.findOne({
+      where: { id, ...filter } as any,
+      relations: relations || [],
+    });
 
     if (!entity) throw new NotFoundException(SYS_MSG.ENTITY_NOT_FOUND);
 
