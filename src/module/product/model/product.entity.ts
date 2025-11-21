@@ -1,5 +1,6 @@
+import { OrderItem } from '@/module/order_items/model/order_items.entity';
 import { BaseEntity } from '@/shared/base.entity';
-import { Column, Entity } from 'typeorm';
+import { Column, Entity, OneToMany } from 'typeorm';
 
 @Entity('products')
 export class Product extends BaseEntity {

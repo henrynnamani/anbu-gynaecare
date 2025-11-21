@@ -1,4 +1,5 @@
 import { CycleLog } from '@/module/cycle_logs/model/cycle_log.entity';
+import { Order } from '@/module/orders/model/order.entity';
 import { UserCycle } from '@/module/user_cycles/model/user_cycle.entity';
 import { BaseEntity } from '@/shared/base.entity';
 import { Column, Entity, OneToMany, OneToOne } from 'typeorm';
@@ -21,5 +22,8 @@ export class User extends BaseEntity {
   cycle: UserCycle;
 
   @OneToMany(() => CycleLog, (log) => log.user)
-  logs: CycleLog[]
+  logs: CycleLog[];
+
+  @OneToOne(() => Order, (order) => order.user)
+  orders: Order[];
 }
