@@ -39,13 +39,9 @@ export class ModelAction<T extends ObjectLiteral> {
     });
   }
 
-  async findOne(
-    id: string,
-    filter?: Partial<T>,
-    relations?: string[],
-  ): Promise<T | null> {
+  async findOne(id: string, relations?: string[]): Promise<T | null> {
     const entity = await this.repository.findOne({
-      where: { id, ...filter } as any,
+      where: { id } as any,
       relations: relations || [],
     });
 

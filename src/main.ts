@@ -16,6 +16,7 @@ async function bootstrap() {
   app.setGlobalPrefix('/api');
 
   const config = new DocumentBuilder()
+  
     .addBearerAuth()
     .addTag('anbu')
     .setTitle('Arbu Gynaecare API')

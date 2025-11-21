@@ -28,13 +28,13 @@ export class CyclePredictionsService {
     }
   }
 
-  async getPrediction(userId: string) {
+  async getPrediction(userId: string, relations?: string[]) {
     try {
       const record = await this.modelAction.findAll(
         {
           user_cycle: { user: { id: userId } as any } as any,
         },
-        ['user_cycle'],
+        relations || [],
       );
 
       return {
