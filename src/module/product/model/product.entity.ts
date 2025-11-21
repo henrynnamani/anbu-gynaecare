@@ -9,6 +9,9 @@ export class Product extends BaseEntity {
   @Column({ type: 'int', nullable: false })
   price: number;
 
+  @Column({ type: 'int', nullable: false })
+  number_of_pad: number;
+
   @Column({ type: 'varchar' })
   description: string;
 
