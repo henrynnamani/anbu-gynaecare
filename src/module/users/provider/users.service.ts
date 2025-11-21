@@ -18,7 +18,11 @@ export class UsersService {
 
   async createUser(user: IUser) {
     try {
-      return await this.modelAction.create(user);
+      const record = await this.modelAction.create(user);
+
+      record.password = '';
+
+      return record;
     } catch (err) {
       throw new RequestTimeoutException(err);
     }

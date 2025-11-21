@@ -1,5 +1,7 @@
+import { CycleLog } from '@/module/cycle_logs/model/cycle_log.entity';
+import { UserCycle } from '@/module/user_cycles/model/user_cycle.entity';
 import { BaseEntity } from '@/shared/base.entity';
-import { Column, Entity } from 'typeorm';
+import { Column, Entity, OneToMany, OneToOne } from 'typeorm';
 
 @Entity('users')
 export class User extends BaseEntity {
@@ -14,4 +16,10 @@ export class User extends BaseEntity {
 
   @Column({ type: 'decimal', nullable: true })
   age: number;
+
+  @OneToOne(() => UserCycle, (user_cycle) => user_cycle.user)
+  cycle: UserCycle;
+
+  @OneToMany(() => CycleLog, (log) => log.user)
+  logs: CycleLog[]
 }
