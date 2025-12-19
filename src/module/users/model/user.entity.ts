@@ -1,3 +1,4 @@
+import { Cart } from '@/module/carts/model/cart.entity';
 import { CycleLog } from '@/module/cycle_logs/model/cycle_log.entity';
 import { Order } from '@/module/orders/model/order.entity';
 import { UserCycle } from '@/module/user_cycles/model/user_cycle.entity';
@@ -26,4 +27,7 @@ export class User extends BaseEntity {
 
   @OneToOne(() => Order, (order) => order.user)
   orders: Order[];
+
+  @OneToOne(() => Cart, (cart) => cart.user)
+  cart: Cart
 }

@@ -11,6 +11,8 @@ import { UserCyclesModule } from './module/user_cycles/user_cycles.module';
 import { CyclePredictionsModule } from './module/cycle_predictions/cycle_predictions.module';
 import { CycleLogsModule } from './module/cycle_logs/cycle_logs.module';
 import { ProductModule } from './module/product/product.module';
+import { CartItemsModule } from './module/cart_items/cart_items.module';
+import { CartsModule } from './module/carts/carts.module';
 
 @Module({
   imports: [
@@ -27,7 +29,9 @@ import { ProductModule } from './module/product/product.module';
     CyclePredictionsModule,
     CycleLogsModule,
     AuthModule,
-    ProductModule 
+    ProductModule,
+    CartsModule,
+    CartItemsModule,
   ],
   controllers: [],
   providers: [

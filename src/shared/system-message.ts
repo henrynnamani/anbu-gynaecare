@@ -14,3 +14,6 @@ export const LOG_LIST_FETCHED = 'List of log';
 
 export const PRODUCT_CREATED_SUCCESSFULLY = 'Product successfully created';
 export const PRODUCT_LIST_FETCHED = 'Product list fetched';
+
+export const CART_CREATED_SUCCESSFULLY = 'Cart successfully created';
+export const CART_CLEARED_SUCCESSFULLY = 'Cart successfully cleared';
