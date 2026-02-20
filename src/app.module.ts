@@ -11,6 +11,10 @@ import { UserCyclesModule } from './module/user_cycles/user_cycles.module';
 import { CyclePredictionsModule } from './module/cycle_predictions/cycle_predictions.module';
 import { CycleLogsModule } from './module/cycle_logs/cycle_logs.module';
 import { ProductModule } from './module/product/product.module';
+import { ScheduleModule } from '@nestjs/schedule';
+import { HttpModule } from '@nestjs/axios';
+import { CronService } from './shared/cron.service';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -21,6 +25,11 @@ import { ProductModule } from './module/product/product.module';
       envFilePath: '.env',
       validationSchema: environmentValidator,
     }),
+    ScheduleModule.forRoot(),
+    HttpModule.register({
+      timeout: 5000,
+      maxRedirects: 3,
+    }),
     DatabaseModule,
     UsersModule,
     UserCyclesModule,
@@ -29,12 +38,13 @@ import { ProductModule } from './module/product/product.module';
     AuthModule,
     ProductModule 
   ],
-  controllers: [],
+  controllers: [AppController],
   providers: [
     {
       provide: APP_GUARD,
       useClass: JwtAuthGuard,
     },
+    CronService
   ],
 })
 export class AppModule {}
