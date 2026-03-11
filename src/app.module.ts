@@ -15,6 +15,7 @@ import { ScheduleModule } from '@nestjs/schedule';
 import { HttpModule } from '@nestjs/axios';
 import { CronService } from './shared/cron.service';
 import { AppController } from './app.controller';
+import { DbPingService } from './shared/dbping.service';
 
 @Module({
   imports: [
@@ -44,7 +45,8 @@ import { AppController } from './app.controller';
       provide: APP_GUARD,
       useClass: JwtAuthGuard,
     },
-    CronService
+    CronService,
+    DbPingService
   ],
 })
 export class AppModule {}
