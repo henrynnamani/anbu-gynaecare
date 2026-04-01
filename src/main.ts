@@ -13,6 +13,13 @@ async function bootstrap() {
     }),
   );
 
+  app.enableCors({
+    origin: 'https://anbu-gynaecare.vercel.app',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    credentials: true,
+    allowedHeaders: 'Content-Type, Accept, Authorization',
+  });
+
   app.setGlobalPrefix('/api');
 
   const config = new DocumentBuilder()
